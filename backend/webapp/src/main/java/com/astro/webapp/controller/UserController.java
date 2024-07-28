@@ -1,6 +1,6 @@
 package com.astro.webapp.controller;
 
-import com.astro.webapp.entity.user.User;
+import com.astro.webapp.entity.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

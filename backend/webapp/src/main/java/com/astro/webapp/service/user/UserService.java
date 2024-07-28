@@ -1,7 +1,7 @@
 package com.astro.webapp.service.user;
 
-import com.astro.webapp.entity.user.Authority;
-import com.astro.webapp.entity.user.User;
+import com.astro.webapp.entity.Authority;
+import com.astro.webapp.entity.User;
 import com.astro.webapp.exception.UserSignUpException;
 import com.astro.webapp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class UserService {
         newUser.setAuthorities(
                 List.of(Authority.builder()
                         .username(newUser.getUsername())
-                        .authority("USER")
+                        .role("USER")
                         .build()
                 ));
         return userRepository.save(newUser);

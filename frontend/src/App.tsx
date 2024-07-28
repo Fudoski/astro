@@ -5,7 +5,19 @@ axios.defaults.baseURL = "https://localhost:8443";
 
 function App() {
   const checkBackend = async () => {
-    axios.get("/hello").then((res) => console.log(res.data));
+    axios
+      .post("/auth/login", {
+        username: "test",
+        password: "password",
+      })
+      .then((res) => {
+        const token = res.data.token;
+        axios
+          .get("/users/me", {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          .then((me) => console.log(me.data));
+      });
   };
 
   return (

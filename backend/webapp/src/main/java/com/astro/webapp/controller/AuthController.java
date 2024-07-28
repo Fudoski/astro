@@ -3,7 +3,7 @@ package com.astro.webapp.controller;
 import com.astro.webapp.dto.LoginResponseDto;
 import com.astro.webapp.dto.LoginUserDto;
 import com.astro.webapp.dto.RegisterUserDto;
-import com.astro.webapp.entity.user.User;
+import com.astro.webapp.entity.User;
 import com.astro.webapp.exception.UserSignUpException;
 import com.astro.webapp.service.auth.AuthenticationService;
 import com.astro.webapp.service.auth.JwtService;

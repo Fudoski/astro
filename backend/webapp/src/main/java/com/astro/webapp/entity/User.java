@@ -1,4 +1,4 @@
-package com.astro.webapp.entity.user;
+package com.astro.webapp.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -74,7 +74,7 @@ public class User implements UserDetails, CredentialsContainer {
         Collection<SimpleGrantedAuthority> grantedAuthorities = new ArrayList<>();
         if (authorities != null) {
             authorities.stream()
-                    .map(authority -> new SimpleGrantedAuthority("ROLE_" + authority.getAuthority()))
+                    .map(authority -> new SimpleGrantedAuthority("ROLE_" + authority.getRole()))
                     .forEach(grantedAuthorities::add);
         }
         return grantedAuthorities;

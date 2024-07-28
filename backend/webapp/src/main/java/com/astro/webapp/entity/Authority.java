@@ -1,4 +1,4 @@
-package com.astro.webapp.entity.user;
+package com.astro.webapp.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,12 +27,12 @@ public class Authority {
 
     @Id
     @Column(length = 50)
-    private String authority;
+    private String role;
 
 
     @Data
     public static class AuthorityId implements Serializable {
         private String username;
-        private String authority;
+        private String role;
     }
 }
