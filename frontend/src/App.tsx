@@ -1,31 +1,21 @@
 import axios from "axios";
 import "./App.css";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import ComponentsPreview from "./pages/ComponentsPreview";
+import HomePage from "./pages/Homepage";
 
+// axios base configuration
 axios.defaults.baseURL = "https://localhost:8443";
 
 function App() {
-  const checkBackend = async () => {
-    axios
-      .post("/auth/login", {
-        username: "test",
-        password: "password",
-      })
-      .then((res) => {
-        const token = res.data.token;
-        axios
-          .get("/users/me", {
-            headers: { Authorization: `Bearer ${token}` },
-          })
-          .then((me) => console.log(me.data));
-      });
-  };
-
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center">
-      <button type="button" onClick={checkBackend}>
-        check backend
-      </button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/components" element={<ComponentsPreview />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
