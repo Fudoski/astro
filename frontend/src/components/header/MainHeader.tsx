@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { menuItems } from "../../data/header/DataHeader";
 import PrimaryButton from "../button/PrimaryButton";
+import MainGrid from "../grid/MainGrid";
 
 export default function MainHeader() {
   return (
-    <>
+    <MainGrid>
       <div className="grid grid-cols-subgrid col-span-12 py-3 items-center">
         <div className="col-start-1 col-span-2">
           <button
@@ -25,7 +26,7 @@ export default function MainHeader() {
           </div>
         </div>
       </div>
-    </>
+    </MainGrid>
   );
 }
 

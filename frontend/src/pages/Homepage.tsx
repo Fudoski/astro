@@ -1,10 +1,13 @@
-import MainGrid from "../components/grid/MainGrid";
 import MainHeader from "../components/header/MainHeader";
+import HeroContainer from "../components/hero/HeroContainer";
 
 export default function HomePage() {
   return (
-    <MainGrid>
+    <>
       <MainHeader />
-    </MainGrid>
+      <div className="flex flex-col gap-6">
+        <HeroContainer />
+      </div>
+    </>
   );
 }
