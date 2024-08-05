@@ -1,22 +1,22 @@
 export const menuItems: HeaderLink[] = [
   {
-    id: "courses",
+    id: "home#courses",
     text: "Курси",
   },
   {
-    id: "books",
+    id: "home#books",
     text: "Книги",
   },
   {
-    id: "marathons",
+    id: "home#marathons",
     text: "Марафони",
   },
   {
-    id: "consultations",
+    id: "home#consultations",
     text: "Консультації",
   },
   {
-    id: "about-me",
+    id: "about",
     text: "Про мене",
   },
 ];

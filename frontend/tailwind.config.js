@@ -8,6 +8,12 @@ export default {
       mobile: "360px",
     },
     extend: {
+      gridColumnStart: {
+        14: "grid-column-start: 14;",
+      },
+      gridTemplateColumns: {
+        16: "repeat(16, minmax(0, 1fr))",
+      },
       colors: {
         "purple-100": "#FAF5FE",
         "purple-200": "#F6EEFE",
@@ -30,6 +36,7 @@ export default {
         "white-200": "#F9F9F9",
         "green-500": "#43974B",
         "red-500": "#E46962",
+        "disabled-dark": "#A5A5A5",
       },
     },
   },
