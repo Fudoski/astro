@@ -1,5 +1,5 @@
-import PrimaryButton from "../button/PrimaryButton";
-import MainGrid from "../grid/MainGrid";
+import PrimaryButton from "../cabinet/CabinetButton";
+import MainGrid from "./MainGrid";
 
 export default function Footer() {
   return (

@@ -1,4 +1,4 @@
-import MainGrid from "../grid/MainGrid";
+import MainGrid from "../common/MainGrid";
 import Hashtags from "./Hashtags";
 
 export default function HeroContainer() {

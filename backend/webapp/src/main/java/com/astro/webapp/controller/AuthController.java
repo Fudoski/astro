@@ -8,6 +8,7 @@ import com.astro.webapp.exception.UserSignUpException;
 import com.astro.webapp.service.auth.AuthenticationService;
 import com.astro.webapp.service.auth.JwtService;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.Hibernate;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class AuthController {
     public ResponseEntity<LoginResponseDto> authenticate(@RequestBody LoginUserDto loginUserDto) {
         User authenticatedUser = authenticationService.authenticate(loginUserDto);
         return ResponseEntity.ok(LoginResponseDto.builder()
-                .token(jwtService.generateToken(authenticatedUser))
+                .token(jwtService.generateToken(Hibernate.unproxy(authenticatedUser, User.class)))
                 .expiresIn(jwtService.getExpirationTime())
                 .build());
     }

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { menuItems } from "../../data/header/DataHeader";
-import PrimaryButton from "../button/PrimaryButton";
-import MainGrid from "../grid/MainGrid";
+import PrimaryButton from "../cabinet/CabinetButton";
+import MainGrid from "./MainGrid";
 
 export default function Header() {
   return (
