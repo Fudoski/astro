@@ -29,7 +29,6 @@ public class Authority {
     @Column(length = 50)
     private String role;
 
-
     @Data
     public static class AuthorityId implements Serializable {
         private String username;

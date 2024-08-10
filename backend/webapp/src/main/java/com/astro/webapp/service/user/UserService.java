@@ -2,6 +2,7 @@ package com.astro.webapp.service.user;
 
 import com.astro.webapp.entity.Authority;
 import com.astro.webapp.entity.User;
+import com.astro.webapp.entity.UserSettings;
 import com.astro.webapp.exception.UserSignUpException;
 import com.astro.webapp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,15 +19,27 @@ public class UserService {
 
     public User createNewUser(User newUser) throws UserSignUpException {
         boolean exists = userRepository.existsById(newUser.getUsername());
+
         if (exists) {
             throw new UserSignUpException(newUser.getUsername());
         }
+
         newUser.setAuthorities(
                 List.of(Authority.builder()
                         .username(newUser.getUsername())
                         .role("USER")
                         .build()
-                ));
+                )
+        );
+
+        newUser.setUserSettings(
+                UserSettings.builder()
+                        .username(newUser.getUsername())
+                        .firstname("")
+                        .surname("")
+                        .build()
+        );
+
         return userRepository.save(newUser);
     }
 

@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: astro-backend
+
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/astro
+    username: root
+    password: gVCOmA9QuKnWBDS82RVu
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  mvc:
+    problemdetails:
+      enabled: true
+
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:application.keystore
+    key-store-password: fudosker
+    key-password: fudosker
+
+security:
+  jwt:
+    secret-key: lV5oMqLvHB2HxPbUdTdWW19TVgIyi8hZqYVn7UaQ3OA=
+    expiration-time: 3600000
