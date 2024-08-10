@@ -1,4 +1,4 @@
-package com.astro.webapp.service.user;
+package com.astro.webapp.service;
 
 import com.astro.webapp.entity.Authority;
 import com.astro.webapp.entity.User;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UsersService {
 
     private final UserRepository userRepository;
 

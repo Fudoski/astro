@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static com.astro.webapp.constant.EntityConstants.DEFAULT_VARCHAR_LENGTH;
+
 @Entity
 @Table(name = "user_settings")
 @Data
@@ -19,8 +21,8 @@ public class UserSettings {
 
     @Id
     private String username;
-    @Column(length = 50)
+    @Column(length = DEFAULT_VARCHAR_LENGTH)
     private String firstname;
-    @Column(length = 50)
+    @Column(length = DEFAULT_VARCHAR_LENGTH)
     private String surname;
 }

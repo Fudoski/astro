@@ -1,10 +1,9 @@
-package com.astro.webapp.service.auth;
+package com.astro.webapp.service;
 
 import com.astro.webapp.dto.LoginUserDto;
 import com.astro.webapp.dto.RegisterUserDto;
 import com.astro.webapp.entity.User;
 import com.astro.webapp.exception.UserSignUpException;
-import com.astro.webapp.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,10 +16,10 @@ public class AuthenticationService {
 
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
-    private final UserService userService;
+    private final UsersService usersService;
 
     public User signUp(RegisterUserDto request) throws UserSignUpException {
-        return userService.createNewUser(User.builder()
+        return usersService.createNewUser(User.builder()
                 .username(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .build());
@@ -32,6 +31,6 @@ public class AuthenticationService {
                         request.getUsername(),
                         request.getPassword())
         );
-        return userService.findByUsername(request.getUsername()).orElseThrow();
+        return usersService.findByUsername(request.getUsername()).orElseThrow();
     }
 }

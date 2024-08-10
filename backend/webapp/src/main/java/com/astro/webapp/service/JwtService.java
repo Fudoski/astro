@@ -1,4 +1,4 @@
-package com.astro.webapp.service.auth;
+package com.astro.webapp.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

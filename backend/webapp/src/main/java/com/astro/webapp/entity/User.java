@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static com.astro.webapp.constant.EntityConstants.DEFAULT_VARCHAR_LENGTH;
+
 @Entity
 @Table(name = "users")
 @Data
@@ -33,7 +35,7 @@ import java.util.List;
 public class User implements UserDetails, CredentialsContainer {
 
     @Id
-    @Column(length = 50)
+    @Column(length = DEFAULT_VARCHAR_LENGTH)
     private String username;
 
     @Column(nullable = false, length = 500)

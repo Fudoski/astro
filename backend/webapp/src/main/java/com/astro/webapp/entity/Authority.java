@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+import static com.astro.webapp.constant.EntityConstants.DEFAULT_VARCHAR_LENGTH;
+
 @Entity
 @Table(name = "authorities")
 @IdClass(Authority.AuthorityId.class)
@@ -22,11 +24,11 @@ import java.io.Serializable;
 public class Authority {
 
     @Id
-    @Column(length = 50)
+    @Column(length = DEFAULT_VARCHAR_LENGTH)
     private String username;
 
     @Id
-    @Column(length = 50)
+    @Column(length = DEFAULT_VARCHAR_LENGTH)
     private String role;
 
     @Data

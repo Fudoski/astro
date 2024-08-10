@@ -1,6 +1,6 @@
 package com.astro.webapp.filter;
 
-import com.astro.webapp.service.auth.JwtService;
+import com.astro.webapp.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
