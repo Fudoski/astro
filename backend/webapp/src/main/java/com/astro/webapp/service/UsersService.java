@@ -6,6 +6,7 @@ import com.astro.webapp.entity.UserSettings;
 import com.astro.webapp.exception.UserSignUpException;
 import com.astro.webapp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,6 +44,7 @@ public class UsersService {
         return userRepository.save(newUser);
     }
 
+    @Cacheable("users")
     public Optional<User> findByUsername(String username) {
         return userRepository.findById(username);
     }

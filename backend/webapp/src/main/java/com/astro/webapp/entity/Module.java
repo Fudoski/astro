@@ -6,6 +6,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,20 +26,27 @@ import java.util.List;
 import static com.astro.webapp.constant.EntityConstants.DEFAULT_VARCHAR_LENGTH;
 
 @Entity
-@Table(name = "courses")
+@Table(name = "modules")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Course {
+public class Module {
 
     @Id
     @GeneratedValue
     private int id;
 
-    @Column(nullable = false)
+    @Column(length = DEFAULT_VARCHAR_LENGTH, nullable = false)
     private String name;
+
+    @ManyToOne
+    private Course course;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @ToString.Exclude
+    private List<Lesson> lessons;
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at", nullable = false)
@@ -55,8 +63,4 @@ public class Course {
     @LastModifiedBy
     @Column(name = "updated_by", nullable = false, length = DEFAULT_VARCHAR_LENGTH)
     private String updatedBy;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @ToString.Exclude
-    private List<Module> modules;
 }
