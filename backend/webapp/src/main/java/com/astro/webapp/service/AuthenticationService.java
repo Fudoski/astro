@@ -1,7 +1,7 @@
 package com.astro.webapp.service;
 
-import com.astro.webapp.dto.LoginUserDto;
-import com.astro.webapp.dto.RegisterUserDto;
+import com.astro.webapp.dto.user.LoginRequest;
+import com.astro.webapp.dto.user.RegisterUserRequest;
 import com.astro.webapp.entity.User;
 import com.astro.webapp.exception.UserSignUpException;
 import lombok.RequiredArgsConstructor;
@@ -21,14 +21,14 @@ public class AuthenticationService {
     private final UsersService usersService;
     private final CacheManager cacheManager;
 
-    public User signUp(RegisterUserDto request) throws UserSignUpException {
+    public User signUp(RegisterUserRequest request) throws UserSignUpException {
         return usersService.createNewUser(User.builder()
                 .username(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .build());
     }
 
-    public User authenticate(LoginUserDto request) {
+    public User authenticate(LoginRequest request) {
         Cache cache = cacheManager.getCache("users");
         if (cache != null) {
             cache.evictIfPresent(request.getUsername());

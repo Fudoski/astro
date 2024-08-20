@@ -1,11 +1,13 @@
 package com.astro.webapp.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -15,6 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.engine.spi.PersistentAttributeInterceptable;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -56,7 +59,7 @@ public class Course {
     @Column(name = "updated_by", nullable = false, length = DEFAULT_VARCHAR_LENGTH)
     private String updatedBy;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<Module> modules;
 }

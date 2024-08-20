@@ -1,8 +1,8 @@
 package com.astro.webapp.controller;
 
-import com.astro.webapp.dto.LoginResponseDto;
-import com.astro.webapp.dto.LoginUserDto;
-import com.astro.webapp.dto.RegisterUserDto;
+import com.astro.webapp.dto.user.LoginResponse;
+import com.astro.webapp.dto.user.LoginRequest;
+import com.astro.webapp.dto.user.RegisterUserRequest;
 import com.astro.webapp.entity.User;
 import com.astro.webapp.exception.UserSignUpException;
 import com.astro.webapp.service.AuthenticationService;
@@ -26,16 +26,16 @@ public class AuthController {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/signup")
-    public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) throws UserSignUpException {
+    public ResponseEntity<User> register(@RequestBody RegisterUserRequest registerUserDto) throws UserSignUpException {
         User registeredUser = authenticationService.signUp(registerUserDto);
         registeredUser.eraseCredentials();
         return ResponseEntity.ok(registeredUser);
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<LoginResponseDto> authenticate(@RequestBody LoginUserDto loginUserDto) {
+    public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginRequest loginUserDto) {
         User authenticatedUser = authenticationService.authenticate(loginUserDto);
-        return ResponseEntity.ok(LoginResponseDto.builder()
+        return ResponseEntity.ok(LoginResponse.builder()
                 .token(jwtService.generateToken(Hibernate.unproxy(authenticatedUser, User.class)))
                 .expiresIn(jwtService.getExpirationTime())
                 .build());

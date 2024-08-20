@@ -6,6 +6,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -41,10 +42,10 @@ public class Module {
     @Column(length = DEFAULT_VARCHAR_LENGTH, nullable = false)
     private String name;
 
-    @ManyToOne
-    private Course course;
+    @Column(name = "course_id", insertable = false, updatable = false, nullable = false)
+    private int courseId;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "module", fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<Lesson> lessons;
 
@@ -63,4 +64,8 @@ public class Module {
     @LastModifiedBy
     @Column(name = "updated_by", nullable = false, length = DEFAULT_VARCHAR_LENGTH)
     private String updatedBy;
+
+    @JoinColumn(name = "course_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Course course;
 }

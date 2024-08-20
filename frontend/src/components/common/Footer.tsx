@@ -1,9 +1,9 @@
-import PrimaryButton from "../cabinet/CabinetButton";
+import OpenCabinetButton from "../cabinet/CabinetButton";
 import MainGrid from "./MainGrid";
 
 export default function Footer() {
   return (
-    <div className="p-2">
+    <div className="p-2 container mx-auto">
       <div className="desktop:bg-[url('/images/footer-desktop.png')] bg-cover bg-no-repeat rounded-3xl">
         <MainGrid py="py-16">
           <div className="grid grid-cols-16 col-span-full text-base text-white-100 gap-y-16">
@@ -49,7 +49,7 @@ export default function Footer() {
               <div className="flex gap-2"></div>
             </div>
             <div className="col-start-14 col-span-3 row-start-1">
-              <PrimaryButton />
+              <OpenCabinetButton />
             </div>
             <div className="row-start-2 col-span-full">test</div>
           </div>

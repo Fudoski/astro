@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { menuItems } from "../../data/header/DataHeader";
-import PrimaryButton from "../cabinet/CabinetButton";
+import OpenCabinetButton from "../cabinet/CabinetButton";
 import MainGrid from "./MainGrid";
 
 export default function Header() {
@@ -22,7 +22,7 @@ export default function Header() {
         </div>
         <div className="desktop:col-start-10 desktop:col-span-3 tablet:col-start-7 tablet:col-span-6">
           <div className="flex justify-end">
-            <PrimaryButton />
+            <OpenCabinetButton />
           </div>
         </div>
       </div>

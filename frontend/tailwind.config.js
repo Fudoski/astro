@@ -37,6 +37,7 @@ export default {
         "green-500": "#43974B",
         "red-500": "#E46962",
         "disabled-dark": "#A5A5A5",
+        "disabled-light": "#E3E3E3",
       },
     },
   },
