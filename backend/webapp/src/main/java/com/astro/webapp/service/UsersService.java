@@ -1,10 +1,10 @@
 package com.astro.webapp.service;
 
-import com.astro.webapp.entity.Authority;
-import com.astro.webapp.entity.User;
-import com.astro.webapp.entity.UserSettings;
-import com.astro.webapp.exception.UserSignUpException;
-import com.astro.webapp.repository.UserRepository;
+import com.astro.webapp.db.entity.Authority;
+import com.astro.webapp.db.entity.User;
+import com.astro.webapp.db.entity.UserSettings;
+import com.astro.webapp.service.exception.UserSignUpException;
+import com.astro.webapp.db.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

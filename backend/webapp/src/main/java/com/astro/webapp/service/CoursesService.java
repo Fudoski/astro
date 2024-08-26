@@ -1,9 +1,9 @@
 package com.astro.webapp.service;
 
-import com.astro.webapp.entity.Course;
-import com.astro.webapp.entity.Module;
-import com.astro.webapp.repository.CourseRepository;
-import com.astro.webapp.repository.ModuleRepository;
+import com.astro.webapp.db.entity.Course;
+import com.astro.webapp.db.entity.Module;
+import com.astro.webapp.db.repository.CourseRepository;
+import com.astro.webapp.db.repository.ModuleRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
@@ -27,15 +27,16 @@ public class CoursesService {
     @Transactional
     @Cacheable("courses")
     public List<Course> getAll() {
-        return StreamSupport.stream(courseRepository.findAll().spliterator(), false).toList();
+        return StreamSupport.stream(courseRepository.findAll().spliterator(), false)
+                .peek(this::loadModulesForCourse)
+                .toList();
     }
 
     public Optional<Course> getById(Integer id) {
         return courseRepository.findById(id)
-                .map(course -> {
-                    course.setModules(moduleRepository.findByCourseId(course.getId()));
-                    return course;
-                });
+                .stream()
+                .peek(this::loadModulesForCourse)
+                .findAny();
     }
 
     public Module addModule(Integer courseId, Module module) {
@@ -43,5 +44,13 @@ public class CoursesService {
         module.setCourse(course);
         module.setCourseId(course.getId());
         return moduleRepository.save(module);
+    }
+
+    private void loadModulesForCourse(Course course) {
+        course.setModules(moduleRepository.findByCourseId(course.getId()));
+    }
+
+    public Module findModule(Integer moduleId) {
+        return moduleRepository.findById(moduleId).orElseThrow();
     }
 }

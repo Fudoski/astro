@@ -2,8 +2,8 @@ package com.astro.webapp.service;
 
 import com.astro.webapp.dto.user.LoginRequest;
 import com.astro.webapp.dto.user.RegisterUserRequest;
-import com.astro.webapp.entity.User;
-import com.astro.webapp.exception.UserSignUpException;
+import com.astro.webapp.db.entity.User;
+import com.astro.webapp.service.exception.UserSignUpException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;

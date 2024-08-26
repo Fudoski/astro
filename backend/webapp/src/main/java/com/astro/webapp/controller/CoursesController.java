@@ -4,8 +4,8 @@ import com.astro.webapp.dto.course.CourseResponse;
 import com.astro.webapp.dto.course.CreateCourseRequest;
 import com.astro.webapp.dto.module.CreateModuleRequest;
 import com.astro.webapp.dto.module.ModuleResponse;
-import com.astro.webapp.entity.Course;
-import com.astro.webapp.entity.Module;
+import com.astro.webapp.db.entity.Course;
+import com.astro.webapp.db.entity.Module;
 import com.astro.webapp.mapper.ResponseMapper;
 import com.astro.webapp.service.CoursesService;
 import jakarta.validation.Valid;
@@ -51,5 +51,11 @@ public class CoursesController {
         Module module = new Module();
         module.setName(request.getName());
         return responseMapper.response(coursesService.addModule(id, module));
+    }
+
+    @GetMapping("/modules/{moduleId}")
+    public ModuleResponse getModule(@PathVariable Integer moduleId) {
+        Module module = coursesService.findModule(moduleId);
+        return responseMapper.response(module);
     }
 }

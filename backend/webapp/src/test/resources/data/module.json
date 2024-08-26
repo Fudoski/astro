@@ -1,0 +1,24 @@
+{
+  "id": 1,
+  "courseId": 1,
+  "fullName": "Сумістність",
+  "shortName": "Модуль 3",
+  "startDate": "23.11.2023",
+  "lessonsCount": 1,
+  "packages": [
+    {
+      "name": "light",
+      "price": 1000,
+      "features": [
+        "Доступ до відеоуроків"
+      ]
+    },
+    {
+      "name": "Medium",
+      "price": 1350,
+      "features": [
+        "Сертифікат"
+      ]
+    }
+  ]
+}

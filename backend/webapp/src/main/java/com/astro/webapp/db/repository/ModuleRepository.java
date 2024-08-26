@@ -1,6 +1,6 @@
-package com.astro.webapp.repository;
+package com.astro.webapp.db.repository;
 
-import com.astro.webapp.entity.Module;
+import com.astro.webapp.db.entity.Module;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

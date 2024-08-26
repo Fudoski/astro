@@ -1,6 +1,6 @@
-package com.astro.webapp.config;
+package com.astro.webapp.spring.config;
 
-import com.astro.webapp.filter.JwtAuthenticationFilter;
+import com.astro.webapp.spring.filter.JwtAuthenticationFilter;
 import com.astro.webapp.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -45,6 +45,7 @@ public class SecurityConfig implements WebMvcConfigurer {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/courses").permitAll()
                         .requestMatchers(HttpMethod.POST, "/courses").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(sessionManagement -> sessionManagement

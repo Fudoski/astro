@@ -119,7 +119,6 @@ function ModuleTariff() {
                     <img src="/Icon/24px/GreenCheck.svg" />
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>

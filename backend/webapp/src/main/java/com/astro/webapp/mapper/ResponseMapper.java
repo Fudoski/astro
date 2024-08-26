@@ -2,8 +2,8 @@ package com.astro.webapp.mapper;
 
 import com.astro.webapp.dto.course.CourseResponse;
 import com.astro.webapp.dto.module.ModuleResponse;
-import com.astro.webapp.entity.Course;
-import com.astro.webapp.entity.Module;
+import com.astro.webapp.db.entity.Course;
+import com.astro.webapp.db.entity.Module;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Hibernate;
 import org.springframework.stereotype.Component;

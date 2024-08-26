@@ -1,7 +1,7 @@
 package com.astro.webapp.mapper;
 
 import com.astro.webapp.dto.module.ModuleResponse;
-import com.astro.webapp.entity.Module;
+import com.astro.webapp.db.entity.Module;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -3,7 +3,7 @@ import Hashtags from "./Hashtags";
 
 export default function HeroContainer() {
   return (
-    <div className="w-full h-[604px] p-2">
+    <div className="w-full h-[604px] p-2 container mx-auto">
       <div className="h-full bg-[url('/images/home-page-hero-bg.png')] bg-cover bg-no-repeat rounded-3xl">
         <MainGrid px="px-[116px]" py="py-16">
           <div className="grid grid-cols-subgrid col-span-12">

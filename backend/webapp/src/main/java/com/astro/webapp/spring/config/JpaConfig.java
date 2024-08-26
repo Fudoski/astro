@@ -1,6 +1,6 @@
-package com.astro.webapp.config;
+package com.astro.webapp.spring.config;
 
-import com.astro.webapp.entity.User;
+import com.astro.webapp.db.entity.User;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,13 @@ public class JpaConfig {
                 .map(SecurityContext::getAuthentication)
                 .filter(Authentication::isAuthenticated)
                 .map(Authentication::getPrincipal)
-                .map(User.class::cast)
-                .map(User::getUsername);
+                .map(o -> {
+                    if (o instanceof String) {
+                        return (String) o;
+                    } else {
+                        User user = (User) o;
+                        return user.getUsername();
+                    }
+                });
     }
 }

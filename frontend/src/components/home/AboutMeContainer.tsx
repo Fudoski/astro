@@ -1,6 +1,6 @@
 export default function AboutMeContainer() {
   return (
-    <div className="px-[124px] flex flex-col gap-14">
+    <div className="px-[124px] flex flex-col gap-14 container mx-auto">
       {/* header */}
       <div className="flex flex-col gap-4">
         <h2 className="text-purple-900 font-medium">Давайте знайомитись</h2>

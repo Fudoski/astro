@@ -1,4 +1,4 @@
-package com.astro.webapp.filter;
+package com.astro.webapp.spring.filter;
 
 import com.astro.webapp.service.JwtService;
 import jakarta.servlet.FilterChain;

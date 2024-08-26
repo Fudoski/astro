@@ -1,4 +1,4 @@
-package com.astro.webapp.exception;
+package com.astro.webapp.service.exception;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

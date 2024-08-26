@@ -1,4 +1,4 @@
-package com.astro.webapp.entity;
+package com.astro.webapp.db.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

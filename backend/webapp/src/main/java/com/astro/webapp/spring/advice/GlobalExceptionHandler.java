@@ -1,4 +1,4 @@
-package com.astro.webapp.advice;
+package com.astro.webapp.spring.advice;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.security.SignatureException;
